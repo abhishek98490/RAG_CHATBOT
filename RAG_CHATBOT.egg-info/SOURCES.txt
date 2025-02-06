@@ -10,6 +10,8 @@ RAG_CHATBOT.egg-info/requires.txt
 RAG_CHATBOT.egg-info/top_level.txt
 data/__init__.py
 src/__init__.py
+src/chunking/__init__.py
+src/chunking/chunking.py
 src/data_ingestion/__init__.py
 src/data_ingestion/document_loader.py
 src/exception/__init__.py
