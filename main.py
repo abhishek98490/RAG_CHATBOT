@@ -31,7 +31,15 @@ def main(file_path,query):
         logging.info("Text extracted from the document")
     except Exception as e:
         raise customexception(e,sys)
-    
+
+    try:
+        client = LLM()
+        response = client.chat(context,query)
+        print(response)
+        logging.info("Response recived from LLM")
+    except Exception as e:
+        raise customexception(e,sys)
+   
 if __name__=="__main__":
     query = "How much degree celsius does global temprature has risen?"
     main("D:\\0MLOps\\RAG_Chatbot\\RAG_CHATBOT\\data\\Understanding_Climate_Change.pdf",query)
