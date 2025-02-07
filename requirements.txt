@@ -3,5 +3,6 @@ python-docx
 tox==3.25.1
 chromadb
 sentence_transformers
-
+python-dotenv
+openai
 -e .

@@ -5,6 +5,7 @@ from src.exception.exception import customexception
 from src.data_ingestion.document_loader import Document_Loader
 from src.chunking.chunking import Chunking
 from src.vector_database.retrival import Chroma_database
+from src.LLM_gateway.LLM_gateway import LLM
 
 db = Chroma_database()
 def main(file_path,query):
@@ -27,7 +28,6 @@ def main(file_path,query):
     try:
         db.process_and_add_documents(chunks,filename)
         context, sources = db.retrive_text(query, filename,n_results=2)
-        print(context)
         logging.info("Text extracted from the document")
     except Exception as e:
         raise customexception(e,sys)

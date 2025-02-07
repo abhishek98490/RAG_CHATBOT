@@ -51,8 +51,6 @@ class Chroma_database():
     def process_and_add_documents(self,chunks, filename: str):
         ids, texts, metadatas = self.data_pre_processing(chunks,filename)
         self.add_to_collection(ids, texts, metadatas)
-        
-        print(f"Added {len(texts)} chunks to collection")
     
     def formated_context_with_sources(self,results):
         try:
