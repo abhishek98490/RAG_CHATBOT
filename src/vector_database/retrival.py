@@ -3,6 +3,7 @@ import chromadb
 from chromadb.utils import embedding_functions
 from src.logger.logging import logging
 from src.exception.exception import customexception
+import sys
 
 class Chroma_database():
     
@@ -73,7 +74,7 @@ class Chroma_database():
                 n_results=n_results
             )
             logging.info(f"data retrived from chromadb")
-            if file_name:
+            if filename:
                 filtered_text = []
                 for i in range(n_results):
                     if results['metadatas'][0][i]["source"] == filename:
@@ -82,7 +83,7 @@ class Chroma_database():
                                                 "metadatas": results['metadatas'][0][i],
                                                 "distances": results['distances'][0][i]
                                                 })
-            context, sources = formated_context_with_sources(filtered_text)
+            context, sources = self.formated_context_with_sources(filtered_text)
             logging.info(f"data formated")
             return context, sources
         except Exception as e:
@@ -98,5 +99,5 @@ if __name__=="__main__":
     db = Chroma_database()
     db.process_and_add_documents(chunks,"text.txt")
     query = "When did Dr. APJ Abdul Kalam pass away, and how?"
-    results = db.retrive_text(query, file_name="text.txt",n_results=2)
-    results
+    results = db.retrive_text(query, filename="text.txt",n_results=2)
+    print(results)
