@@ -1,4 +1,4 @@
-# RAG Chatbot Project (Under Development)
+# RAG Chatbot Project 
 
 This is a **Retrieval-Augmented Generation (RAG) Chatbot** project that enables users to interact with a Large Language Model (LLM) based on the contents of uploaded documents. The documents (in `.txt`, `.docx`, or `.pdf` formats) are processed to extract their text content, which is then used to answer user queries.
 
